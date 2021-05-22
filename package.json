@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "gonefishinauth0",
   "version": "1.0.0",
   "description": "This sample demonstrates the integration of [Auth0 React SDK](https://github.com/auth0/auth0-react) into a React application created using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html). The sample is a companion to the [Auth0 React SDK Quickstart](https://auth0.com/docs/quickstart/spa/react).",
@@ -18,6 +19,54 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HelenIL/GoneFishinAuth.git"
+=======
+  "name": "auth0-react-sample",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all --parallel spa api-server",
+    "build": "npm run build:css && react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject",
+    "spa": "react-scripts start",
+    "server": "node server.js",
+    "server:dev": "nodemon server.js",
+    "api-server": "node api-server.js",
+    "api-server:dev": "nodemon api-server.js",
+    "dev": "npm-run-all --parallel spa api-server:dev",
+    "prod": "npm-run-all --parallel server api-server",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
+  },
+  "dependencies": {
+    "@auth0/auth0-react": "^1.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-jwt": "^6.0.0",
+    "helmet": "^3.18.0",
+    "highlight.js": "^10.0.3",
+    "jwks-rsa": "^1.4.0",
+    "morgan": "^1.9.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.0",
+    "reactstrap": "^8.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.3.0",
+    "autoprefixer": "^10.2.5",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jest-fetch-mock": "^3.0.3",
+    "nodemon": "^2.0.4",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.2"
+>>>>>>> e678e13df6217bbbb8969076fb0a845cc389a5bf
   },
   "author": "",
   "license": "MIT",
