@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../styles/main.css';
-import { ReactComponent as Logo } from '../assets/gone.svg';
+
 
 import {
   Collapse,
   Container,
   Navbar,
+  NavbarText,
   NavbarToggler,
   NavbarBrand,
   Nav,
@@ -39,9 +40,9 @@ const NavBar = () => {
 
   return (
     <div className="nav-container">
-      <Navbar color="light" light expand="md">
+      <Navbar expand="md" className="bg-blue-300 bg-opacity-75">
         <Container>
-          <NavbarBrand className="gone" />
+          <NavbarBrand className="logo" />
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -54,7 +55,7 @@ const NavBar = () => {
                 >
                   Home
                 </NavLink>
-                <h1 className="text-xl text-center underline font-bold pl-20" >Welcome to Gone Fishin'</h1>
+                <NavbarText className="text-xl items-center text-center underline font-bold"> Welcome</NavbarText>
               </NavItem>
               {isAuthenticated && (
                 <NavItem>
@@ -74,7 +75,7 @@ const NavBar = () => {
                 <NavItem>
                   <Button
                     id="qsLoginBtn"
-                    color="primary"
+                    color="success"
                     className="btn-margin"
                     onClick={() => loginWithRedirect()}
                   >
@@ -118,7 +119,7 @@ const NavBar = () => {
                 <NavItem>
                   <Button
                     id="qsLoginBtn"
-                    color="primary"
+                    color="success"
                     block
                     onClick={() => loginWithRedirect({})}
                   >
