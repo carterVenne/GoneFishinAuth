@@ -1,16 +1,15 @@
 import React from "react";
 import '../styles/main.css';
-import logo from "../assets/gone.png";
+import Map from './Map/Map2';
+
+
 
 const Hero = () => (
   <div className="text-center hero my-5">
-    <img className="mb-3 app-logo" src={gone} alt="logo" width="120" />
-    <h1 className="mb-4">React.js Sample Project</h1>
-
-    <p className="lead">
-      This is a sample application that demonstrates an authentication flow for
-      an SPA, using <a href="https://reactjs.org">React.js</a>
-    </p>
+    
+    <div>
+      <Map />
+    </div>
   </div>
 );
 
