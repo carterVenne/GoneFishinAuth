@@ -40,7 +40,7 @@ const NavBar = () => {
 
   return (
     <div className="nav-container">
-      <Navbar expand="md" className="bg-blue-300 bg-opacity-75">
+      <Navbar light expand="md" className="bg-blue-300 bg-opacity-75">
         <Container>
           <NavbarBrand className="logo" />
           <NavbarToggler onClick={toggle} />
