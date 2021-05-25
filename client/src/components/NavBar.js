@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../styles/main.css';
+import { ReactComponent as Logo } from '../assets/gone.svg';
 
 import {
   Collapse,
@@ -40,7 +41,7 @@ const NavBar = () => {
     <div className="nav-container">
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand className="logo" />
+          <NavbarBrand className="gone" />
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -53,6 +54,7 @@ const NavBar = () => {
                 >
                   Home
                 </NavLink>
+                <h1 className="text-xl text-center underline font-bold pl-20" >Welcome to Gone Fishin'</h1>
               </NavItem>
               {isAuthenticated && (
                 <NavItem>
