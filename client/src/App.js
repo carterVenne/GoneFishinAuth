@@ -11,6 +11,7 @@ import ExternalApi from "./views/ExternalApi";
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 // import Posts from './views/Posts';
+import Story from './views/Story';
 
 // styles
 import "./App.css";
@@ -39,7 +40,7 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route path="/profile" component={Profile} />
             {/* <Route path="/posts" component={Posts} /> */}
-            <Route path="/external-api" component={ExternalApi} />
+            <Route path="/story" component={Story} />
           </Switch>
         </Container>
         <Footer />
