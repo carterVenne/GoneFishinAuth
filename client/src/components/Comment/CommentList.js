@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
-import Comment  from './Comment';
-import style from './style';
+import React from "react";
+import Comment from "./Comment";
 
-class CommentList extends Component { 
-	render() {
+export default function CommentList(props) {
+  return (
+    <div className="commentList">
+      <h5 className="text-muted mb-4">
+        <span className="badge badge-success">{props.comments.length}</span>{" "}
+        Comment{props.comments.length > 0 ? "s" : ""}
+      </h5>
 
-		let commentNodes = this.props.data.map(comment => {
-			return (
-				<Comment author={ comment.author } key={ comment.id }>
-				{	comment.text }
-				</Comment>
-			);
-		})
+      {props.comments.length === 0 && !props.loading ? (
+        <div className="alert text-center alert-info">
+          Be the first to comment
+        </div>
+      ) : null}
 
-		return (
-
-			<div style={ style.commentList } >
-				{ commentNodes }
-			</div>
-
-		);
-
-	}
+      {props.comments.map((comment, index) => (
+        <Comment key={index} comment={comment} />
+      ))}
+    </div>
+  );
 }
-
-export default CommentList;

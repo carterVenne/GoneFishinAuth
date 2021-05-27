@@ -1,4 +1,4 @@
 {
     "mongoURI":
-    "mongodb+srv://Admin:pass1234@cluster0.28pwf.mongodb.net/user?retryWrites=true&w=majority" 
+    "mongodb+srv://Admin:pass1234@cluster0.28pwf.mongodb.net/story?retryWrites=true&w=majority" 
 }

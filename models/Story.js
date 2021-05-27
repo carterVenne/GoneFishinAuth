@@ -1,11 +1,33 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const storySchema = new Schema({
-    title: { type: String, required: true },
-    user: { type: String, reuired: true },
-    comment_text: { type: String, required: true },
-    date: { type: Date, default: Date.now }
+    catchlocation: {
+        type: String,
+        allowNull: false,
+        trim: true
+    },
+    fishstory: {
+        type: String,
+        allowNull: false,
+        trim: true
+        },
+    fishspecies: {
+        type: String,
+        allowNull: false,
+        trim: true
+    },
+    weight: {
+        type: String,
+        allowNull: false,
+        trim: true
+    },
+    length: {
+        type: String,
+        allowNull: false,
+        trim: true
+    }
 });
 
 const Story = mongoose.model("Story", storySchema);

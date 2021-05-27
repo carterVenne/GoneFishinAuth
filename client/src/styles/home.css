@@ -1,5 +1,10 @@
 .logoPic {
     text-align: center;
-    height: 550px;
-    width: 5500px
+    height: 350px;
+    width: 2000px
+}
+
+.homeText {
+    font-size: 50px;
+    text-align: center;
 }

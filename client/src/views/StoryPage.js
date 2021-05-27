@@ -1,16 +1,16 @@
+
 import React, { Fragment } from "react";
 
 import Hero from "../components/Hero";
 // import Content from "../components/Content";
-import CommentBox from '../components/Comment/CommentBox';
+import Story from '../components/Comment/Story';
 
-const Story = () => (
+const StoryPage = () => (
   <Fragment>
     <Hero />
     <hr />
-    <CommentBox />
+    <Story />
   </Fragment>
 );
 
-export default Story;
-
+export default StoryPage;

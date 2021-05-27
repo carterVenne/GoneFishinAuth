@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
     findAll: function(req, res) {
-        db.Comment
+        db.story
         .find(req.query)
         .sort
     }

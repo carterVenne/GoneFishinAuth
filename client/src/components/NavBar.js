@@ -8,7 +8,6 @@ import {
   Collapse,
   Container,
   Navbar,
-  NavbarText,
   NavbarToggler,
   NavbarBrand,
   Nav,
@@ -68,7 +67,7 @@ const NavBar = () => {
                   </NavLink>
                 </NavItem>
               )}
-                <NavbarText className="text-xl items-center text-center underline font-bold"> Welcome to Gone Fishin'</NavbarText>
+                
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (

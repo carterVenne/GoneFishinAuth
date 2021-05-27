@@ -1,43 +1,131 @@
-import React, { Component } from 'react';
-import style from './style';
+import React, { Component } from "react";
 
-class CommentForm extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { author: '', text: '' };
-		this.handleAuthorChange = this.handleAuthorChange.bind(this);
-		this.handleTextChange = this.handleTextChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-	handleAuthorChange(e) {
-		this.setState({ author: e.target.value });
-	}
-	handleTextChange(e) {
-		this.setState({ text: e.target.value });
-	}
-	handleSubmit(e) {
-		e.preventDefault();
-		console.log(`${this.state.author} said ${this.state.text}`);
-		//will be trying this into the POST method in a bit
-	}
-	render() {
-		return (
-			<form style={ style.commentForm } onSubmit = { this.handleSubmit }>
-			<input type='text' placeholder='Your name...' 
-			style={ style.commentAuthorForm }
-			value={ this.state.author }
-			onChange={ this.handleAuthorChange } />
-			<input type='text' placeholder='Say something...'
-			style={ style.commentFormText }
-			value={ this.state.text }
-			onChange={ this.handleTextChange } />
-			<input type='submit'
-			style={ style.commentFormPost }
-			value='Post' />
-			</form>
+export default class CommentForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      error: "",
 
-		)
-	}
+      comment: {
+        name: "",
+        message: ""
+      }
+    };
+
+    // bind context to methods
+    this.handleFieldChange = this.handleFieldChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  /**
+   * Handle form input field changes & update the state
+   */
+  handleFieldChange = event => {
+    const { value, name } = event.target;
+
+    this.setState({
+      ...this.state,
+      comment: {
+        ...this.state.comment,
+        [name]: value
+      }
+    });
+  };
+
+  /**
+   * Form submit handler
+   */
+  onSubmit(e) {
+    // prevent default form submission
+    e.preventDefault();
+
+    if (!this.isFormValid()) {
+      this.setState({ error: "All fields are required." });
+      return;
+    }
+
+    // loading status and clear error
+    this.setState({ error: "", loading: true });
+
+    // persist the comments on server
+    let { comment } = this.state;
+    fetch("http://localhost:7777", {
+      method: "post",
+      body: JSON.stringify(comment)
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          this.setState({ loading: false, error: res.error });
+        } else {
+          // add time return from api and push comment to parent state
+          comment.time = res.time;
+          this.props.addComment(comment);
+
+          // clear the message box
+          this.setState({
+            loading: false,
+            comment: { ...comment, message: "" }
+          });
+        }
+      })
+      .catch(err => {
+        this.setState({
+          error: "Something went wrong while submitting form.",
+          loading: false
+        });
+      });
+  }
+
+  /**
+   * Simple validation
+   */
+  isFormValid() {
+    return this.state.comment.name !== "" && this.state.comment.message !== "";
+  }
+
+  renderError() {
+    return this.state.error ? (
+      <div className="alert alert-danger">{this.state.error}</div>
+    ) : null;
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <form method="post" onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <input
+              onChange={this.handleFieldChange}
+              value={this.state.comment.name}
+              className="form-control"
+              placeholder="😎 Your Name"
+              name="name"
+              type="text"
+            />
+          </div>
+
+          <div className="form-group">
+            <textarea
+              onChange={this.handleFieldChange}
+              value={this.state.comment.message}
+              className="form-control"
+              placeholder="🤬 Your Comment"
+              name="message"
+              rows="5"
+            />
+          </div>
+
+          {this.renderError()}
+
+          <div className="form-group">
+            <button disabled={this.state.loading} className="btn btn-primary">
+              Comment &#10148;
+            </button>
+          </div>
+        </form>
+      </React.Fragment>
+    );
+  }
 }
-
-export default CommentForm;
