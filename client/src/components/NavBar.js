@@ -3,10 +3,12 @@ import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../styles/main.css';
 
+
 import {
   Collapse,
   Container,
   Navbar,
+  NavbarText,
   NavbarToggler,
   NavbarBrand,
   Nav,
@@ -38,7 +40,7 @@ const NavBar = () => {
 
   return (
     <div className="nav-container">
-      <Navbar color="light" light expand="md">
+      <Navbar light expand="md" className="bg-blue-300 bg-opacity-75">
         <Container>
           <NavbarBrand className="logo" />
           <NavbarToggler onClick={toggle} />
@@ -66,13 +68,14 @@ const NavBar = () => {
                   </NavLink>
                 </NavItem>
               )}
+                <NavbarText className="text-xl items-center text-center underline font-bold"> Welcome to Gone Fishin'</NavbarText>
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (
                 <NavItem>
                   <Button
                     id="qsLoginBtn"
-                    color="primary"
+                    color="success"
                     className="btn-margin"
                     onClick={() => loginWithRedirect()}
                   >
@@ -116,7 +119,7 @@ const NavBar = () => {
                 <NavItem>
                   <Button
                     id="qsLoginBtn"
-                    color="primary"
+                    color="success"
                     block
                     onClick={() => loginWithRedirect({})}
                   >

@@ -2,14 +2,14 @@ const style = {
     commentBox: {
     width:'80vw',
     margin:'0 auto',
-    fontFamily:'Helvetica, sans-serif'
+    fontFamily:'Helvetica, sans-serif',
     },
     title: {
     textAlign:'center',
-    textTransform:'uppercase'
+    textTransform:'uppercase',
     },
     commentList: {
-    border:'1px solid #f1f1f1',
+    border:'1px solid',
     padding:'0 12px',
     maxHeight:'70vh',
     overflow:'scroll'
@@ -18,13 +18,15 @@ const style = {
     backgroundColor:'#fafafa',
     margin:'10px',
     padding:'3px 10px',
-    fontSize:'.85rem'
+    fontSize:'.85rem',
+    border:'3px solid #339933',
     },
     commentForm: {
     margin:'10px',
     display:'flex',
     flexFlow:'row wrap',
-    justifyContent:'space-between'
+    justifyContent:'space-between',
+    border:'3px solid #339933'
     },
     commentFormAuthor: {
     minWidth:'150px',
@@ -32,7 +34,10 @@ const style = {
     padding:'0 10px',
     borderRadius:'3px',
     height:'40px',
-    flex:'2'
+    flex:'2',
+    },
+    commentAuthorForm: {
+    border:'1px solid #339933'
     },
     commentFormText: {
     flex:'4',
@@ -40,7 +45,7 @@ const style = {
     margin:'3px',
     padding:'0 10px',
     height:'40px',
-    borderRadius:'3px'
+    borderRadius:'3px',
     },
     commentFormPost: {
     minWidth:'75px',
@@ -53,7 +58,7 @@ const style = {
     color:'#fff',
     textTransform:'uppercase',
     letterSpacing:'.055rem',
-    border:'none'
+
     },
     updateLink: {
     textDecoration:'none',
